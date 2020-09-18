@@ -31,7 +31,7 @@ public class MeetingSystemV3 {
 
     ZonedDateTime now = LocalDateTime.now().atZone(ZoneId.of("Asia/Shanghai"));
     if (now.isAfter(meetingTimeInShanghai)) {
-      ZonedDateTime tomorrow = now.plus(Period.of(0,0,1));
+      ZonedDateTime tomorrow = now.plus(Period.ofDays(1));
       int newDayOfYear = tomorrow.getDayOfYear();
       meetingTimeInShanghai = meetingTimeInShanghai.withDayOfYear(newDayOfYear);
 
