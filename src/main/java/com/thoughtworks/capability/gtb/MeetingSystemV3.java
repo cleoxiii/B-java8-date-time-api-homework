@@ -1,6 +1,7 @@
 package com.thoughtworks.capability.gtb;
 
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -30,8 +31,7 @@ public class MeetingSystemV3 {
 
     ZonedDateTime now = LocalDateTime.now().atZone(ZoneId.of("Asia/Shanghai"));
     if (now.isAfter(meetingTimeInShanghai)) {
-      // TODO: calculate next meeting time using Period
-      ZonedDateTime tomorrow = now.plusDays(1);
+      ZonedDateTime tomorrow = now.plus(Period.of(0,0,1));
       int newDayOfYear = tomorrow.getDayOfYear();
       meetingTimeInShanghai = meetingTimeInShanghai.withDayOfYear(newDayOfYear);
 
